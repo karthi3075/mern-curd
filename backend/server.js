@@ -1,6 +1,6 @@
 const express=require("express");
 const app=express();
-const PORT=5000;
+const PORT=process.env.PORT;
 const detailRoutes=require("./routes/details")
 const connectDB=require("./config/db")
 const cors=require("cors")
@@ -15,6 +15,6 @@ app.use("/details",detailRoutes)
 app.use("/",(req,res)=>{
     console.log("server works well")
 })
-app.listen(PORT,()=>{
+app.listen(PORT,"0.0.0.0",()=>{
     console.log("server started")
 })
